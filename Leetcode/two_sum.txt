@@ -24,3 +24,24 @@ Constraints:
 Only one valid answer exists.
  
 
+
+Brute Force: The brute force approach would be to use two nested loops - the outer loops picks each number in the array and the inner loops checks every other number to see if they sum to the target - quadratic time complexity O(n^2) due to having two nested loops
+
+    nums = [2, 7, 11, 15] and target = 9:
+
+    def twoSum (nums, target): 
+        for i in range(len(nums)):                  // index is 0 and the number is 2
+            for j in range (i + 1, len(nums)):      // index is 1 and the number is 7
+                if nums[i] + nums[j] == target:     // if 2 + 7 = 0 then return the indices
+                    return [i, j]                   // [0, 1] indices are returned accordingly
+
+
+
+
+
+
+
+
+
+
+Enumerate() function adds a counter to an iterable and returns it as an enumerate object (which is an iterator with and index and the value)
