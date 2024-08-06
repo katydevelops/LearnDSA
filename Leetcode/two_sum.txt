@@ -30,18 +30,27 @@ Brute Force: The brute force approach would be to use two nested loops - the out
     nums = [2, 7, 11, 15] and target = 9:
 
     def twoSum (nums, target): 
-        for i in range(len(nums)):                  // index is 0 and the number is 2
-            for j in range (i + 1, len(nums)):      // index is 1 and the number is 7
-                if nums[i] + nums[j] == target:     // if 2 + 7 = 0 then return the indices
-                    return [i, j]                   // [0, 1] indices are returned accordingly
+        for i in range(len(nums)):                  # index is 0 and the number is 2
+            for j in range (i + 1, len(nums)):      # index is 1 and the number is 7
+                if nums[i] + nums[j] == target:     # if 2 + 7 = 0 then return the indices
+                    return [i, j]                   # [0, 1] indices are returned accordingly
 
 
 
+Better Approach (Python):
+Iterate over the array and subtract the target from the value to get a complement to store in a dictionary. Once the complement that adds with value to equal the target is found - then return the indices per the instructions.
 
+def two_sum(nums, target):
+    dictionary = {}  
 
+    for index, value in enumerate(nums): 
+        complement = target - value
 
+        if complement in dictionary:
+            return [dictionary[complement], index]
 
+        dictionary[value] = index
 
+Initiate a dictionary which will be used to hold the complement and the index it is located at. This is important to be able to check if the number that adds to equal our target value is already contained in the dictionary. Before adding the current number in the loop to the dictionary, check if the complement is already inside as a value. If the complement is found, then return the indices of the complement from the dictionary and the current number. This gives you the correct pair of indices where the sum of the two numbers equals the target. 
 
-
-Enumerate() function adds a counter to an iterable and returns it as an enumerate object (which is an iterator with and index and the value)
+Enumerate() function adds a counter to an iterable and returns it as an enumerate object (which is an iterator with and index and the value) - aka it will return the index and the value of an iterable that you are looping through
