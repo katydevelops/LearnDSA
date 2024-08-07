@@ -8,4 +8,4 @@ Input: nums = [-1, 0, 3, 5, 9, 12], target = 9
 Output: 4
 Explanation: 9 exists in nums and it's index 4
 
-Start by examining the left pointer, midway point and right pointer. Our midway point will be 3. Is the target greater than or less than 3? It's greater than so we update our section of the array to look at the [5, 9, 12] portion and then start over. The midpoint is 9, which is our target, so we return the index of 9 which is 4 (from the original nums array).
+We have a sorted array and we need an effective way to search for the target value. Start by creating a left pointer, midway point and a right pointer of the values in the array. Our midway point will be 3. Is the target greater than or less than 3? It's greater than so we update our section of the array to look at the [5, 9, 12] portion and then start over. The midpoint is 9, which is our target, so we return the index of 9 which is 4 (from the original nums array).
