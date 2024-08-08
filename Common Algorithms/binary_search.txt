@@ -9,3 +9,18 @@ Output: 4
 Explanation: 9 exists in nums and it's index 4
 
 We have a sorted array and we need an effective way to search for the target value. Start by creating a left pointer, midway point and a right pointer of the values in the array. Our midway point will be 3. Is the target greater than or less than 3? It's greater than so we update our section of the array to look at the [5, 9, 12] portion and then start over. The midpoint is 9, which is our target, so we return the index of 9 which is 4 (from the original nums array).
+
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        l, r = 0, len(nums) 1 
+
+        while l <= r:
+        m = (l + r) // 2
+        if nums[m] > target:
+            r = m - 1
+        elif nums[m] < target:
+            l = m + 1
+        else:
+            return m
+    return -1
+
